@@ -14,12 +14,12 @@ public class ControllerExceptionHandler {
     //Tratamento de exceção básico
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity threstDuplicateEntry(DataIntegrityViolationException exception) {
+    public ResponseEntity threatDuplicateEntry(DataIntegrityViolationException exception) {
         ExceptionDTO exceptionDTO = new ExceptionDTO("User already exists", "400");
         return ResponseEntity.badRequest().body(exceptionDTO);
     }
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity threat404(EntityNotFoundException exception) {
         return ResponseEntity.notFound().build();
     }
